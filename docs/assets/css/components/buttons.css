@@ -1,0 +1,61 @@
+div.button {
+    position: relative;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid;
+    border-bottom: 3px solid;
+    transition: all 0.25s;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    user-select: none;
+}
+
+div.button.radius_5 { border-radius: 5px; }
+div.button.radius_10 { border-radius: 10px; }
+div.button.radius_12 { border-radius: 12px; }
+div.button.radius_14 { border-radius: 14px; }
+div.button.radius_16 { border-radius: 16px; }
+
+
+
+
+div.button.orange {
+    background-color: hsl(16, 75%, 50%);
+    /* color: var(--darkmode-color); */
+    color: #fff;
+}
+div.button.orange:hover {
+    background-color: hsl(16, 75%, 60%);
+}
+div.button.orange:active {
+    background-color: hsl(16, 75%, 55%);
+    border-bottom: 1px solid;
+}
+body.lightmode div.button.orange {
+    border-color: hsl(16, 55%, 50%) !important;
+}
+body.darkmode div.button.orange {
+    border-color: hsl(16, 75%, 30%) !important;
+}
+
+
+
+div.button.black {
+    background-color: hsl(216, 28%, 10%);
+    color: var(--darkmode-color)
+}
+div.button.black:hover {
+    background-color: hsl(216, 28%, 15%);
+}
+div.button.black:active {
+    background-color: hsl(216, 28%, 12.5%);
+    border-bottom: 1px solid;
+}
+body.lightmode div.button.black {
+    border-color: hsl(0, 0%, 50%) !important;
+}
+body.darkmode div.button.black {
+    border-color: hsl(0, 0%, 30%) !important;
+}

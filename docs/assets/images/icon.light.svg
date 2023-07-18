@@ -1,0 +1,17 @@
+<svg height="128" width="128" version="1.1" baseprofile="full" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+  <style>
+      @font-face {
+          font-family: Consolas;
+          src: url("/assets/fonts/consolas.ttf");
+      }
+      
+      * {
+        font-family: "Consolas";
+        font-style: normal !important;
+      }
+  </style>
+
+  <rect x="0" y="0" rx="32" ry="32" width="128" height="128" fill="rgba(0,0,0,0.125)" />
+  <text font-size="54px" x="20" y="62" fill="rgba(0,0,0,0.75)">one</text>
+  <text font-size="26px" x="22" y="88" fill="rgba(0,0,0,0.75)">org.cc</text>
+</svg>

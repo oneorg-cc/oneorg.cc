@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "node dev.js",
+    "clean": "find ./docs -type f -name '*.js' -delete",
+    "build": "tsc --build ."
+  },
+  "devDependencies": {
+    "@types/web": "^0.0.107",
+    "http-server": "^14.1.1",
+    "watch": "^0.13.0"
+  }
+}
