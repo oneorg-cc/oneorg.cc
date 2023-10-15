@@ -81,8 +81,7 @@ namespace Locale {
                         "owner": string,
                         "name": string,
                         "branches": {
-                            "main": string,
-                            "registry": string
+                            "main": string
                         }
                     },
                     "apps": {

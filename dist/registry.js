@@ -83,7 +83,7 @@ class Registry {
                     owner: this.config.apis.github.repository.owner,
                     repo: this.config.apis.github.repository.name,
                     path: "rules/subname.pattern.txt",
-                    options: { ref: this.config.apis.github.repository.branches.registry }
+                    options: { ref: this.config.apis.github.repository.branches.main }
                 }));
                 if (!subname_pattern_content)
                     return null;
@@ -104,7 +104,7 @@ class Registry {
                         owner: this.config.apis.github.repository.owner,
                         repo: this.config.apis.github.repository.name,
                         path: "rules/reserved.subnames.patterns.txt",
-                        options: { ref: this.config.apis.github.repository.branches.registry }
+                        options: { ref: this.config.apis.github.repository.branches.main }
                     });
                     if (!raw)
                         return null;
@@ -124,7 +124,7 @@ class Registry {
                         owner: this.config.apis.github.repository.owner,
                         repo: this.config.apis.github.repository.name,
                         path: "rules/reserved.subnames.txt",
-                        options: { ref: this.config.apis.github.repository.branches.registry }
+                        options: { ref: this.config.apis.github.repository.branches.main }
                     });
                     if (!raw)
                         return null;
@@ -143,7 +143,7 @@ class Registry {
                 owner: this.config.apis.github.repository.owner,
                 repo: this.config.apis.github.repository.name,
                 path: "",
-                options: { ref: this.config.apis.github.repository.branches.registry }
+                options: { ref: this.config.apis.github.repository.branches.main }
             });
             if (!directory)
                 return [];
@@ -193,7 +193,7 @@ class Registry {
                 owner: this.config.apis.github.repository.owner,
                 repo: this.config.apis.github.repository.name,
                 path: subname,
-                options: { ref: this.config.apis.github.repository.branches.registry }
+                options: { ref: this.config.apis.github.repository.branches.main }
             }));
         },
         claim: async (subname, token) => {
@@ -223,7 +223,7 @@ class Registry {
                     owner: this.config.apis.github.repository.owner,
                     repo: this.config.apis.github.repository.name,
                     path: `data/subnames/${subname}`,
-                    options: { ref: this.config.apis.github.repository.branches.registry }
+                    options: { ref: this.config.apis.github.repository.branches.main }
                 });
                 return (content ? content.text.length > 0 ? content.json : null : null);
             },
@@ -243,7 +243,7 @@ class Registry {
                     repo: locale_1.default.config.registry.apis.github.repository.name,
                     path: `data/subnames/${subname}`,
                     body: {
-                        branch: locale_1.default.config.registry.apis.github.repository.branches.registry,
+                        branch: locale_1.default.config.registry.apis.github.repository.branches.main,
                         message: "update",
                         committer: {
                             name: jsontoken ? jsontoken.username : "admin",

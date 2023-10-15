@@ -110,7 +110,7 @@ export default class Registry {
                     owner: this.config.apis.github.repository.owner,
                     repo: this.config.apis.github.repository.name,
                     path: "rules/subname.pattern.txt",
-                    options: { ref: this.config.apis.github.repository.branches.registry }
+                    options: { ref: this.config.apis.github.repository.branches.main }
                 }));
     
                 if(!subname_pattern_content) return null;
@@ -140,7 +140,7 @@ export default class Registry {
                         owner: this.config.apis.github.repository.owner,
                         repo: this.config.apis.github.repository.name,
                         path: "rules/reserved.subnames.patterns.txt",
-                        options: { ref: this.config.apis.github.repository.branches.registry }
+                        options: { ref: this.config.apis.github.repository.branches.main }
                     });
         
                     if(!raw) return null;
@@ -169,7 +169,7 @@ export default class Registry {
                         owner: this.config.apis.github.repository.owner,
                         repo: this.config.apis.github.repository.name,
                         path: "rules/reserved.subnames.txt",
-                        options: { ref: this.config.apis.github.repository.branches.registry }
+                        options: { ref: this.config.apis.github.repository.branches.main }
                     });
         
                     if(!raw) return null;
@@ -196,7 +196,7 @@ export default class Registry {
                 owner: this.config.apis.github.repository.owner,
                 repo: this.config.apis.github.repository.name,
                 path: "",
-                options: { ref: this.config.apis.github.repository.branches.registry }
+                options: { ref: this.config.apis.github.repository.branches.main }
             });
     
             if(!directory) return [];
@@ -262,7 +262,7 @@ export default class Registry {
                 owner: this.config.apis.github.repository.owner,
                 repo: this.config.apis.github.repository.name,
                 path: subname,
-                options: { ref: this.config.apis.github.repository.branches.registry }
+                options: { ref: this.config.apis.github.repository.branches.main }
             }));
         },
 
@@ -305,7 +305,7 @@ export default class Registry {
                     owner: this.config.apis.github.repository.owner,
                     repo: this.config.apis.github.repository.name,
                     path: `data/subnames/${subname}`,
-                    options: { ref: this.config.apis.github.repository.branches.registry }
+                    options: { ref: this.config.apis.github.repository.branches.main }
                 });
 
                 return (content ? content.text.length > 0 ? content.json : null : null) as (ZoneConfiguration | null);
@@ -334,7 +334,7 @@ export default class Registry {
                     repo: Locale.config.registry.apis.github.repository.name,
                     path: `data/subnames/${subname}`,
                     body: {
-                        branch: Locale.config.registry.apis.github.repository.branches.registry,
+                        branch: Locale.config.registry.apis.github.repository.branches.main,
                         
                         message: "update",
                         committer: {
