@@ -77,11 +77,16 @@ namespace Locale {
             "apis": {
                 "github": {
                     "token": string,
-                    "repository": {
-                        "owner": string,
-                        "name": string,
-                        "branches": {
-                            "main": string
+                    "repositories": {
+                        "main": {
+                            "owner": string,
+                            "name": string,
+                            "branches": { "main": string, "webapp": string }
+                        },
+                        "registry": {
+                            "owner": string,
+                            "name": string,
+                            "branches": { "main": string }
                         }
                     },
                     "apps": {

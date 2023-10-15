@@ -107,10 +107,10 @@ export default class Registry {
 
             if(!result) {
                 let subname_pattern_content = (await this.apis.github.repo.fs.read({
-                    owner: this.config.apis.github.repository.owner,
-                    repo: this.config.apis.github.repository.name,
+                    owner: this.config.apis.github.repositories.main.owner,
+                    repo: this.config.apis.github.repositories.main.name,
                     path: "rules/subname.pattern.txt",
-                    options: { ref: this.config.apis.github.repository.branches.main }
+                    options: { ref: this.config.apis.github.repositories.main.branches.main }
                 }));
     
                 if(!subname_pattern_content) return null;
@@ -137,10 +137,10 @@ export default class Registry {
         
                 if(!result) {
                     let raw = await this.apis.github.repo.fs.read({
-                        owner: this.config.apis.github.repository.owner,
-                        repo: this.config.apis.github.repository.name,
+                        owner: this.config.apis.github.repositories.main.owner,
+                        repo: this.config.apis.github.repositories.main.name,
                         path: "rules/reserved.subnames.patterns.txt",
-                        options: { ref: this.config.apis.github.repository.branches.main }
+                        options: { ref: this.config.apis.github.repositories.main.branches.main }
                     });
         
                     if(!raw) return null;
@@ -166,10 +166,10 @@ export default class Registry {
         
                 if(!result) {
                     let raw = await this.apis.github.repo.fs.read({
-                        owner: this.config.apis.github.repository.owner,
-                        repo: this.config.apis.github.repository.name,
+                        owner: this.config.apis.github.repositories.main.owner,
+                        repo: this.config.apis.github.repositories.main.name,
                         path: "rules/reserved.subnames.txt",
-                        options: { ref: this.config.apis.github.repository.branches.main }
+                        options: { ref: this.config.apis.github.repositories.main.branches.main }
                     });
         
                     if(!raw) return null;
@@ -193,10 +193,10 @@ export default class Registry {
             // 
 
             let directory = await this.apis.github.repo.fs.object<"dir">({
-                owner: this.config.apis.github.repository.owner,
-                repo: this.config.apis.github.repository.name,
+                owner: this.config.apis.github.repositories.registry.owner,
+                repo: this.config.apis.github.repositories.registry.name,
                 path: "",
-                options: { ref: this.config.apis.github.repository.branches.main }
+                options: { ref: this.config.apis.github.repositories.registry.branches.main }
             });
     
             if(!directory) return [];
@@ -259,10 +259,10 @@ export default class Registry {
                 return false;
     
             return !(await this.apis.github.repo.fs.exists({
-                owner: this.config.apis.github.repository.owner,
-                repo: this.config.apis.github.repository.name,
+                owner: this.config.apis.github.repositories.registry.owner,
+                repo: this.config.apis.github.repositories.registry.name,
                 path: subname,
-                options: { ref: this.config.apis.github.repository.branches.main }
+                options: { ref: this.config.apis.github.repositories.registry.branches.main }
             }));
         },
 
@@ -302,10 +302,10 @@ export default class Registry {
                 // 
 
                 let content = await this.apis.github.repo.fs.read({
-                    owner: this.config.apis.github.repository.owner,
-                    repo: this.config.apis.github.repository.name,
-                    path: `data/subnames/${subname}`,
-                    options: { ref: this.config.apis.github.repository.branches.main }
+                    owner: this.config.apis.github.repositories.registry.owner,
+                    repo: this.config.apis.github.repositories.registry.name,
+                    path: subname,
+                    options: { ref: this.config.apis.github.repositories.registry.branches.main }
                 });
 
                 return (content ? content.text.length > 0 ? content.json : null : null) as (ZoneConfiguration | null);
@@ -330,11 +330,11 @@ export default class Registry {
                 const jsontoken = token ? await this.tokens.json(token) : null;
 
                 const response = await this.#apis.github.repo.fs.write({
-                    owner: Locale.config.registry.apis.github.repository.owner,
-                    repo: Locale.config.registry.apis.github.repository.name,
-                    path: `data/subnames/${subname}`,
+                    owner: Locale.config.registry.apis.github.repositories.registry.owner,
+                    repo: Locale.config.registry.apis.github.repositories.registry.name,
+                    path: subname,
                     body: {
-                        branch: Locale.config.registry.apis.github.repository.branches.main,
+                        branch: Locale.config.registry.apis.github.repositories.registry.branches.main,
                         
                         message: "update",
                         committer: {
@@ -372,8 +372,8 @@ export default class Registry {
                 // 
     
                 const response = await this.apis.github.repo.fs.read({
-                    owner: this.config.apis.github.repository.owner,
-                    repo: this.config.apis.github.repository.name,
+                    owner: this.config.apis.github.repositories.registry.owner,
+                    repo: this.config.apis.github.repositories.registry.name,
                     path: ""
                 })
             }
